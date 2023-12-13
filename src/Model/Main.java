@@ -10,12 +10,12 @@ import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-import Controller.GameController;
+import Controller.MainController;
 import Model.Location.DIRECTION;
-import View.WelcomePage;
+import View.LoadingPage;
 
 
-public class Main {
+public class Main implements Subject {
   private String playerName;
   public List<Domino> _d;
   public List<Domino> _g;
@@ -273,12 +273,13 @@ public class Main {
   
   public final int ZERO = 0;
   
-  public void run() throws IOException, Exception {
+  @Override
+public void run() throws IOException, Exception {
     IOSpecialist io = new IOSpecialist();
     System.out
         .println("Welcome To Abominodo - The Best Dominoes Puzzle Game in the Universe");
     System.out.println("Version 2.1 (c), Kevan Buckley, 2014");
-//    System.out.println("Serial number " + Special.getStamp());
+//  System.out.println("Serial number " + Special.getStamp());
     System.out.println();
     System.out.println(MultiLingualStringTable.getMessage(0));
     playerName = io.getString();
@@ -828,7 +829,8 @@ public class Main {
   public static void main(String[] args) throws IOException, Exception {
     new Main().run();
   }
-  public void drawDominoes(Graphics g) {
+  @Override
+public void drawDominoes(Graphics g) {
     for (Domino d : _d) {
       pf.dp.drawDomino(g, d);
     }
@@ -844,7 +846,8 @@ public class Main {
       }
     }
   }
-  public void drawGuesses(Graphics g) {
+  @Override
+public void drawGuesses(Graphics g) {
     for (Domino d : _g) {
       pf.dp.drawDomino(g, d);
     }
