@@ -1,3 +1,5 @@
+package Model;
+
 public class SPlayertwo implements Strategy{
 	
    @Override
