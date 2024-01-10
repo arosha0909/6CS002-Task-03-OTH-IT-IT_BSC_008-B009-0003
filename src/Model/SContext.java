@@ -1,3 +1,5 @@
+package Model;
+
 public class SContext {
    private Strategy strategy;
 
